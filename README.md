@@ -2,6 +2,8 @@
 
 Soldering and programming practice shield
 
+![Solder practice board, rendered image](en/media/base_panel_render.jpg)
+
 ## User manual
 
 The code, variables, comments will all be in English. The project files are located in the `code` folder.
