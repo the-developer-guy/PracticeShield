@@ -2,6 +2,8 @@
 
 Soldering and programming practice shield
 
+You can grab [the manufacturing files or directly order a PCB from PCBWay here!](https://www.pcbway.com/project/shareproject/Practice_Shield_f079cca5.html)
+
 ![Solder practice board, rendered image](en/media/base_panel_render.jpg)
 
 ## User manual
