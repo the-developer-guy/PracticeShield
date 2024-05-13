@@ -6,6 +6,8 @@ This is the embedded Hello World!
 
 Configure digital pin 2 as an output, and periodically turn it on (HIGH) and off (LOW).
 
+[Click here for video!](https://youtube.com/shorts/rRoTMfvWe2Y?feature=share)
+
 ## Explanation
 
 The second step after turning something on - turn it off!
