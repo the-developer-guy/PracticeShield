@@ -4,7 +4,7 @@
 
 Assembling steps arriving soon!
 
-![Solder practice board](media/base_panel.jpg) ![Solder practice board](media/panel_populated.jpg)
+![Solder practice board](../en/media/base_panel.jpg) ![Solder practice board](../en/media/panel_populated.jpg)
 
 ## Programming
 
