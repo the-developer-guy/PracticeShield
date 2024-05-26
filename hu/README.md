@@ -2,7 +2,7 @@
 
 ## Összeszerelés
 
-[A videót ide kattintva érheted el.](media/base_panel.jpg)
+[A videót ide kattintva érheted el.](https://youtu.be/ZdfeQkbDTOk)
 
 ![Solder practice board](../en/media/base_panel.jpg) ![Solder practice board](../en/media/panel_populated.jpg)
 
