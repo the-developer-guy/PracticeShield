@@ -1,5 +1,15 @@
 # Arduino gyakorlópanel - felhasználói útmutató
 
+## Visszajelzés
+
+Olyan nincs, hogy valami tényleg univerzális és mindenkinek jó! Előfordulhat, hogy nehézségekbe ütközöl, vagy pont ellenkezőleg - túl egyszerű. De erre nem tudok magamtól rájönni, ezért kérlek, írd meg a visszajelzésedet, hogy milyen volt használni! Nagyon sokat tud ám segíteni!
+
+Semmilyen személyes adatot nem gyűjt a kérdőív.
+
+[Egyszer ide kattintva az "élményt" mondhatod el, hogy tetszett. (vagy nem tetszett)](https://forms.gle/XTFCtm8d9yMYUctC8)
+
+[Itt pedig konkrét javaslatokat írhatsz, például mi volt nehéz, mi lett volna jó másképp!](https://forms.gle/paG4czfgyr8oau8H7)
+
 ## Összeszerelés
 
 [A videót ide kattintva érheted el.](https://youtu.be/ZdfeQkbDTOk)
