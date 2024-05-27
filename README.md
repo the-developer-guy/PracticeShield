@@ -51,18 +51,32 @@ Compatible parts:
 
 ### Slide switch
 
+Regular SPDT switch, straight, 3 pins, 3mm pin pitch.
+
 Compatible parts:
 - SS12F44G4
 
 ### Potentiometer
 
 Compatible parts:
-- Alps Alpine RK09K11, RK09D11 series, examples: RK09D1130C2P and RK09K1130AAU
-- SR Passives R9011-1 series, example: R9011-1-10K LIN
+- Alps Alpine RK09K11 series
+    - RK09K1130AV7
+    - RK09K1130AJ3
+    - RK09K1130AAU
+    - RK09K1130BM4
+- Alps Alpine RK09D11 series
+    - RK09D1130C2P
+    - RK09D117000C
+- SR Passives R9011-1 series
+    - R9011-1-10K LIN
 
 ### Piezo buzzer
 
 Strictly passive buzzers!
+
+Max diameter: 20mm
+
+Pin pitch: 6.5mm
 
 Compatible parts:
 - SFN-12055PA6.5
