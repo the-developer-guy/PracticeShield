@@ -12,6 +12,14 @@ The code, variables, comments will all be in English. The project files are loca
 
 However, the `hatchling` level boards are aimed to be usable from age 10, so translations are very welcome! The baseline is the English - `en`.
 
+## Schematic
+
+Of course, a schematic is available. The board is not complicated, but a few things I want to point out: the board is 3.3V main. All the pins, buttons, etc. are limited to this for compatibility reasons. The "regular" Arduino Uno R3 works with 5V signals, and the R4 also works with 5V signals. Most Arm based microcontrollers only tolerate 3.3V IO signals, so it may be compatible with more Arduino shaped devboards.
+
+Also, the analog voltage on A0 goes from 0V to 3.3V, while the default reference is 5V. Again, it may limit the range, but won't fry "regular" microcontrollers - better safe than sorry!
+
+![PCB schematic](en/media/schematic.png)
+
 ## BOM
 
 This board uses TH/THT parts only.
