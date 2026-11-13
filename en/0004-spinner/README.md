@@ -4,23 +4,27 @@ Let's take the LEDs for a spin!
 
 ## Task
 
-Let the light go clockwise on the LED circle, and learn about loops.
+Let the light go counterclockwise on the LED circle, and learn about loops.
 
 ## Explanation
 
-We already have a loop: the `loop()`.
+We already have a loop: the `loop()`. But we need will need our "controlled" loop too, with its own variables and whatnot. It's usually called a `for` loop.
 
 ### Step 1: make a spinner
 
-Before you make the leds spin clockwise AND counterclockwise, make them go clockwise first.
+Before you make the leds spin clockwise AND counterclockwise, make them go just counterclockwise first.
 
-1. configure digital pins 2-9 as output
-1. turn on the LED on pin 2
-1. wait 200 ms with `delay()`
-1. turn off pin 2 and turn on pin 3
+1. configure digital pins 4-11 as output
+1. turn on the LED on pin 4
+1. wait 500 ms with `delay()`
+1. turn off pin 4 and turn on pin 5
 1. repeat this turn off - turn on for all LEDs
 
-### Final step: add a variable!
+### Step 2: spin infinitely
+
+Putting all of these in the `setup()` function will run only once, and stop there. You only have to configure the pins as outputs once, leave that in the `setup()` and move the LED logic to the `loop()`.
+
+### Step 3: add a variable!
 
 Now speed things up! Double the blinking frequency by changing the delay time from 500 to 250. But how many times we want to do that? Only once! Why?
 
@@ -30,8 +34,20 @@ This is where you learn about variables. These can store data. We will start wit
 
 We can also set its value, let's change it: `int delayTime = 500;`.
 
-Put this BEFORE the `void setup() {` line, so "everyone" can access this. And now change both `delay(500);` to `delay(delayTime);` and run the program.
+Put this BEFORE the `void setup() {` line, so "everyone" can access this. And now change all `delay(500);` to `delay(delayTime);` and run the program.
 
-It blinks as usual, right? Now change the `delayTime`'s value to 250. Can you guess? Of course, it's easy: `int delayTime = 250;`
+It runs with the same speed, right? Now change the `delayTime`'s value to 250. Can you guess? Of course, it's easy: `int delayTime = 250;`
 
-If you upload the code, now it blinks twice as fast!
+If you upload the code, it will run twice as fast!
+
+### Final step: ensure correctness
+
+Depending on the solution, the last LED may stay on - if the last step is `turn LED 10 off` with `turn LED 11 on`, then we jump back to just `turn on LED 4`. Make the code "more correct"!
+
+Let's redefine our task and run this in an infinite loop:
+
+1. turn all LEDs off
+1. turn on the next LED
+1. wait
+
+The difference? No matter what glitch or error happened during execution, one and only one LED will be on.

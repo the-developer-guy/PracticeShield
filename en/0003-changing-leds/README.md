@@ -6,7 +6,7 @@ Control multiple pins and introduce "variables"!
 
 ## Task
 
-Configure the left (pin 8) and right (pin 4) LED as an output, and let them blink alternately. Control the blinking speed by only modifying one value!
+Configure the left (pin 4) and right (pin 8) LED as an output, and let them blink alternately. Control the blinking speed by only modifying one value!
 
 ## Explanation
 

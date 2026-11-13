@@ -4,7 +4,7 @@ This is the embedded Hello World!
 
 ## Task
 
-Configure digital pin 2 as an output, and periodically turn it on (HIGH) and off (LOW).
+Configure digital pin 4 as an output, and periodically turn it on (HIGH) and off (LOW).
 
 [Click here for video!](https://youtube.com/shorts/rRoTMfvWe2Y?feature=share)
 
@@ -12,17 +12,17 @@ Configure digital pin 2 as an output, and periodically turn it on (HIGH) and off
 
 The second step after turning something on - turn it off!
 
-In the first example we configured pin 2 as an output in the `setup()` function. This function runs only once after powering on or a reset.
+In the first example we configured pin 4 as an output in the `setup()` function. This function runs only once after powering on or a reset.
 
 If we just modify our previous example and write the magic "turn off" command after the "turn on" command, the following will happen:
 
-1. configure pin 2 as output
-1. turn pin 2 on
-1. turn pin 2 off
+1. configure pin 4 as output
+1. turn pin 4 on
+1. turn pin 4 off
 
 Maybe we will briefly see the led blink, but that's all. We want to turn it on and off as long as it has power! That's where the `loop()` function comes into play. If you put anything in the `loop()`, that will be repeatedly executed.
 
-And how do we turn the pin off? `digitalWrite(2, HIGH);` turned it on, so what do you guess, what will turn it off? If you guessed `digitalWrite(2, LOW);`, you were right!
+And how do we turn the pin off? `digitalWrite(4, HIGH);` turned it on, so what do you guess, what will turn it off? If you guessed `digitalWrite(4, LOW);`, you were right!
 
 ### Step 1: turn on and off in setup()
 
@@ -30,7 +30,7 @@ So let's try the following: put these commands in the `setup()` block and see: "
 
 ### Step 2: turn on and off in loop()
 
-Move the `digitalWrite(2, HIGH);` and `digitalWrite(2, LOW);` in the `loop()`'s block, to see what happens.
+Move the `digitalWrite(4, HIGH);` and `digitalWrite(4, LOW);` in the `loop()`'s block, to see what happens.
 
 Now it's "always on" - maybe not so bright? What happened? We already saw: turning on and off can happen really fast! How fast? Several thousand times per second!
 
