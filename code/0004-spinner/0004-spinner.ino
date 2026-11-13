@@ -5,7 +5,7 @@ int delayTime = 250;
 void setup() {
 
   // set all LED pins (2-9) as output
-  for (int i = 2; i < 10; i++) {
+  for (int i = 4; i <= 11; i++) {
     pinMode(i, OUTPUT);
   }
 }
@@ -13,10 +13,10 @@ void setup() {
 void loop() {
 
   // for each LED (loop)
-  for (int i = 2; i < 10; i++) {
+  for (int i = 4; i <= 11; i++) {
 
     // turn off all LEDs (nested loop)
-    for (int j = 2; j < 10; j++) {
+    for (int j = 4; j <= 11; j++) {
       digitalWrite(j, LOW);
     }
 
