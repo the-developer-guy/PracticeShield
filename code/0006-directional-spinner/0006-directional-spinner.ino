@@ -3,7 +3,7 @@
 
 // create a variable to store delay AND which LED comes next
 int delayTime = 250;
-int nextLed = 2;
+int nextLed = 4;
 
 void setup() {
 
@@ -19,7 +19,7 @@ void setup() {
 void loop() {
 
   // calculate, which LED comes next
-  // if the switch is on the right, go clockwise
+  // if the switch is on the right, go counterclockwise (low pin number to high)
   if (digitalRead(A3) == HIGH) {
 
     // and add 1 to the LED number
@@ -32,16 +32,16 @@ void loop() {
     }
   } 
   
-  // if the switch is on the ledt, go counterclockwise
+  // if the switch is on the left, go clockwise (high pin number to low)
   else {
 
     // and subtract 1 from the LED number
     nextLed--;
 
-    // but if we go under the minimum, pin 2
+    // but if we go under the minimum, pin 4
     if (nextLed < MIN_LED) {
 
-      // jump to the last LED on pin 9 (MAX_LED)
+      // jump to the last LED on pin 11 (MAX_LED)
       nextLed = MAX_LED;
     }
   }
