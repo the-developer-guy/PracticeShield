@@ -4,7 +4,7 @@ int delayTime = 500;
 
 void setup() {
 
-  // set the right and left LED pin as output
+  // set the left and right LED pin as output
   pinMode(4, OUTPUT);
   pinMode(8, OUTPUT);
 }

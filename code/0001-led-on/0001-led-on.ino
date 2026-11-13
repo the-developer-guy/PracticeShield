@@ -3,11 +3,11 @@
 void setup() {
   // put your setup code here, to run once:
   
-  // set LED1 on pin 2 to output
-  pinMode(2, OUTPUT);
+  // set LED1 on pin 10 to output
+  pinMode(10, OUTPUT);
 
   // turn LED1 on
-  digitalWrite(2, HIGH);
+  digitalWrite(10, HIGH);
 }
 
 void loop() {

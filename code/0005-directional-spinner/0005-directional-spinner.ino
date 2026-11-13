@@ -1,5 +1,5 @@
-#define MIN_LED 2
-#define MAX_LED 9
+#define MIN_LED 4
+#define MAX_LED 11
 
 // create a variable to store delay AND which LED comes next
 int delayTime = 250;
@@ -8,7 +8,7 @@ int nextLed = 2;
 void setup() {
 
   // set all LED pins (2-9) as output
-  for (int pin = 2; pin < 10; pin++) {
+  for (int pin = MIN_LED; pin <= MAX_LED; pin++) {
     pinMode(pin, OUTPUT);
   }
 
@@ -25,9 +25,9 @@ void loop() {
     // and add 1 to the LED number
     nextLed++;
 
-    // but if we go over pin 9, the maximum
+    // but if we go over pin 11, the maximum
     if (nextLed > MAX_LED) {
-      // jump back to the first LED on pin 2 (MIN_LED)
+      // jump back to the first LED on pin 4 (MIN_LED)
       nextLed = MIN_LED;
     }
   } 
@@ -47,7 +47,7 @@ void loop() {
   }
 
   // turn off all LEDs
-  for (int pin = 2; pin < 10; pin++) {
+  for (int pin = MIN_LED; pin <= MAX_LED; pin++) {
     digitalWrite(pin, LOW);
   }
 
