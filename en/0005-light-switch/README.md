@@ -1,126 +1,97 @@
-# 0005-light-switch
+# Lesson 5: Reading a Switch & Making Decisions (`if` / `else`) 🎚️
 
-Learn how to read an input signal and use basic conditional statements.
+Up until now, your microcontroller has only been *talking* (sending outputs to LEDs). Today, it learns how to *listen*! You'll read the position of the physical slide switch on your board and make your code react to it.
 
-## Task
+## 🎯 Your Mission
+Read the state of the switch connected to analog pin `A3`, and use conditional statements (`if` / `else`) to control an LED on pin `10`.
 
-Read the switch's state by configuring the pin (analog pin 3) as an input, and control an LED with the switch.
+---
 
-## Explanation
+## 🧠 How It Works
 
-Okay, first of all, this can be confusing. Are we going to read analog signals? No! The switch can be `on` or `off`, left or right, it clearly produces a digital signal! But here's the catch. All analog pins are digital pins at the same time! 
+### Wait—Why is a Switch on an *Analog* Pin (`A3`)?!
+Good catch! A physical switch only has two positions: **LEFT** (`OFF` / `LOW`) or **RIGHT** (`ON` / `HIGH`). That's a **digital** signal! So why is it wired to pin `A3` (Analog 3)?
 
 ![](../media/0005-gpio.png)
 
-To save space, almost every pin has more, than one function, and you can configure, how would you like to use it. Except power, every pin can work as a GPIO, or General Purpose Input Output. This is how we used it so far: general purpose output - connect (drive) the pin to power (5V) or ground (0V). Instead of having dedicated input and output pins, you can configure a pin to be either an `INPUT` or `OUTPUT`.
+Here's a neat hardware secret: **every analog pin on this microcontroller can also act as a regular digital GPIO pin!** Because microcontrollers are tiny, almost every pin wears multiple hats to save space. Depending on how you configure them in code, pins can read analog voltages, control servo motors, talk to sensors (via UART, SPI, or I²C), or act as simple digital inputs and outputs.
 
-Some pins can also read analog signals, others can drive an RC servo, or communicate with other devices via UART, SPI, I²C, CAN, and many more! It depends on the microcontroller and the pin. To demonstrate this, the switch is connected to the `A3` pin. You will have to configure it just like the previous digital pins, just write a different name.
+So you configure `A3` just like any digital pin—just write `A3` instead of a plain number!
 
-### Step 1: basic light switch
+### Step 1: Reading the Switch Once in `setup()`
+Let's configure pin `10` as an `OUTPUT` and pin `A3` as an `INPUT`. Then, we use `digitalRead(A3)` to check whether the switch is receiving voltage (`HIGH`, which equals `1`) or connected to ground (`LOW`, which equals `0`), and save that answer in a variable:
 
-In the `setup()` function, configure pin `10` as `OUTPUT`, and pin `A3` (Analog 3) as `INPUT`.
+```cpp
+void setup() {
+  pinMode(10, OUTPUT);
+  pinMode(A3, INPUT);
 
-Now read the state of the `A3` pin with the `digitalRead()` function and store the value! We learned about variables. The `HIGH` state is just the number 1, `LOW` is 0. We can store the result (return value) of the `digitalRead()` function in an integer `int` variable. (just don't forget to give a meaningful name to variables, no one will know what `x` or `a` stores)
-
-``` C++
-int switchState = digitalRead(A3);
-```
-
-We can use this variable's value in the `digitalWrite()` function too! Try writing this state to LED 1 on pin 10:
-
-``` C++
-digitalWrite(10, switchState);
-```
-
-Just for practice's sake, write this in the `setup()` function. Now if the switch is in the left position, the LED will turn off after a reset. In the right position, the LED will be on after a reset.
-
-### Step 2: ligth switch without restart
-
-The previous example seems pointless. We can check the switch state anytime, not just once after a reset!
-
-Right, move the pin read-write code to the `loop()`. If you don't add any `delay()`, flipping the switch will immediately turn the LED on or off! Lovely!
-
-### Step 3: inverted ligth switch
-
-Let's have an annoying real-world task: adjust our code based on (seemingly) dumb requests! Someone made a mistake, and we have to correct it in our code. Turn on the LED when the switch is in its left position, and turn the LED off when it's in the right position. The exact opposite what our code does!
-
-Last minute changes in the requirements? Wrong datasheet version? Manufacturer stopped making a part and have to use something different? No matter what happened, boss said You have to modify the code. How it's done?
-
-We can either write the "opposite" value directly with `digitalWrite()`, but that's not universal enough. When A happens, we have to do X. Otherwise, we have to do Y. X and Y can be as complex as possible, so we have to leave room for that.
-
-Programs have **conditionals**, otherwise they would do the same thing over and over. They control the flow of the program. We can either turn on or off some code with the `if` statement, or make an "A or B" decision by adding the `else` keyword. Our previous theoretical example would look like this:
-
-``` C++
-// if A happens
-if(A) {
-    // do X
-    X();
+  int switchState = digitalRead(A3);
+  digitalWrite(10, switchState);
 }
-// otherwise
-else
-{
-    // do Y
-    Y();
+
+void loop() {
 }
 ```
+Try this out! Flip the switch to the right and press the **Reset** button on your board—the LED turns on. Flip the switch to the left and press **Reset**—the LED stays off.
 
-The condition is A, in our example the button's state. Or to be precise, the value of `switchState`. We have to turn the LED off, when it's equal to `HIGH`. When it's not `HIGH` (aka. `LOW`), turn the LED on. Modify the condition!
+### Step 2: Live Light Switch (No Reset Needed!)
+Having to press Reset every time you flip a light switch would be pretty annoying! Move the `digitalRead()` and `digitalWrite()` lines into `loop()` so the board checks the switch thousands of times per second:
 
-``` C++
-if(switchState == HIGH) {
-    X();
+```cpp
+void setup() {
+  pinMode(10, OUTPUT);
+  pinMode(A3, INPUT);
 }
-else
-{
-    Y();
+
+void loop() {
+  int switchState = digitalRead(A3);
+  digitalWrite(10, switchState);
+}
+```
+Now flip the switch back and forth—the LED responds instantly!
+
+### Step 3: Inverting the Switch with `if` / `else`
+Imagine your hardware teammate comes to you and says: *"Oops! We mounted the switch upside down. Can you make the LED turn **ON** when the switch is on the **LEFT** (`LOW`), and **OFF** when it's on the **RIGHT** (`HIGH`)?"*
+
+In real-world engineering, requirements change all the time, and fixing it in software saves you from resoldering hardware! To make decisions in code, we use **conditionals** (`if` and `else`):
+
+```cpp
+void setup() {
+  pinMode(10, OUTPUT);
+  pinMode(A3, INPUT);
+}
+
+void loop() {
+  int switchState = digitalRead(A3);
+
+  // Notice the DOUBLE equals sign (==) used for comparing two values!
+  if (switchState == HIGH) {
+    digitalWrite(10, LOW);  // Switch is RIGHT -> Turn LED OFF
+  }
+  else {
+    digitalWrite(10, HIGH); // Otherwise (Switch is LEFT) -> Turn LED ON
+  }
 }
 ```
 
-We can read it as "if the value of switchState equals to HIGH". But based on our hardware configuration, it means "if the switch is in the right position"! That's the real meaning of that line.
+> **Watch Out for `=` vs `==`!** A single `=` *assigns* a value (puts data into a variable), while a double `==` *asks a question* ("are these two things equal?"). Mixing them up is one of the most common bugs in C++!
 
-So "if the switch is in the rigth position", to turn the LED off, aka. "write LOW to pin 10".
+### Final Step: Same Logic, Written Another Way
+We can also flip the condition around and check `if (switchState == LOW)` first:
 
-``` C++
-if(switchState == HIGH) {
-    digitalWrite(10, LOW);
-}
-else
-{
-    Y();
-}
-```
-
-Finish the sentence: "otherwise turn the LED on", or "otherwise write HIGH to pin 10".
-
-``` C++
-if(switchState == HIGH) {
-    digitalWrite(10, LOW);
-}
-else
-{
-    digitalWrite(10, HIGH);
-}
-```
-
-### Final step: same, but different
-
-Can we do the other way around? Absolutely! We can check if the switch's value is `LOW`, just don't forget to adjust the written values:
-
-``` C++
-if(switchState == LOW) {
+```cpp
+if (switchState == LOW) {
   digitalWrite(10, HIGH);
 }
 else {
   digitalWrite(10, LOW);
 }
 ```
+In fact, because C++ treats `1` (`HIGH`) as **true** and `0` (`LOW`) as **false**, experienced programmers often write the condition simply as `if (switchState)`!
 
-Last but not least: the professionals know why this method is safer! How? We'll learn about that later, but here's a little teaser:
+---
 
-``` C++
-if(switchState) {
-  digitalWrite(10, LOW);
-}
-else {
-  digitalWrite(10, HIGH);
-}
+## 🛠️ Hardware & Coding Homework
+* **Hardware Check:** If flipping the switch doesn't change the LED at all, inspect the solder joints under the slide switch and check that the switch isn't stuck.
+* **Challenge (Ask your teacher if you want to discuss!):** Right now, you're controlling 1 LED with the switch. How could you use `if` / `else` so that flipping the switch **LEFT** lights up pin `4`, and flipping it **RIGHT** lights up pin `11`?
