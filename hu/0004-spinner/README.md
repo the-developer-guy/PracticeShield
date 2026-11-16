@@ -28,9 +28,9 @@ for (int pin = 4; pin <= 11; pin++) {
 ```
 
 Szedjük szét a zárójelben lévő három utasítást:
-1. **`int pin = 4;`** — *Kezdőérték:* Létrehozunk egy ideiglenes számláló változót `pin` néven, és `4`-ről indítjuk.
-2. **`pin <= 11;`** — *Feltétel:* Addig ismételjük a ciklust, amíg a `pin` értéke kisebb vagy egyenlő `11`-gyel.
-3. **`pin++`** — *Léptetés:* Minden kör végén hozzáadunk `1`-et a `pin` értékéhez (a `pin++` a `pin = pin + 1` rövidítése).
+1. **`int pin = 4;`**  -  *Kezdőérték:* Létrehozunk egy ideiglenes számláló változót `pin` néven, és `4`-ről indítjuk.
+2. **`pin <= 11;`**  -  *Feltétel:* Addig ismételjük a ciklust, amíg a `pin` értéke kisebb vagy egyenlő `11`-gyel.
+3. **`pin++`**  -  *Léptetés:* Minden kör végén hozzáadunk `1`-et a `pin` értékéhez (a `pin++` a `pin = pin + 1` rövidítése).
 
 Ezzel a trükkel már a `setup()`-ban is megspórolunk egy csomó gépelést – 8 sor helyett 3 sorból megvan az összes láb beállítása:
 

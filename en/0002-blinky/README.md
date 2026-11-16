@@ -1,4 +1,4 @@
-# Lesson 2: Blinky — The Embedded "Hello, World!" 🚨
+# Lesson 2: Blinky  -  The Embedded "Hello, World!" 🚨
 
 The classic first coding project is printing *"Hello, World!"* on a screen. Can you find a screen on the board? Me neither! Our version is making an LED blink. You already know how to turn an LED on - now let's learn how to turn it off too, and create a steady heartbeat. This is more important than you think - a lot of industrial devices have one of these heartbeat LEDs to show if it's running, or something happened and it stopped working.
 

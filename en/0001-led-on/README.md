@@ -15,7 +15,7 @@ On your microcontroller board, those little metal pins around the edge are calle
 By default, pins start out as inputs so they don't accidentally send power where it shouldn't go. To light up an LED, we need to tell the board: *"Hey, pin 4 should be an output!"*
 
 ### Step 1: Setting Up the Pin (`pinMode()`)
-Look closely at your board—you'll see **LED1** next to the label **D4** (Digital Pin 4). In your code, you just refer to it by its number: `4`.
+Look closely at your board - you'll see **LED1** next to the label **D4** (Digital Pin 4). In your code, you just refer to it by its number: `4`.
 
 To configure it, we use the `pinMode()` function. Commands like this are usually put inside the `setup()` block. The code inside these curly braces `{}` runs once when the board turns on (or after a reset). Also, don't forget the semicolon `;` after the function call!
 
@@ -42,14 +42,14 @@ void setup() {
 }
 
 void loop() {
-  // Nothing needed here yet—the LED just stays on!
+  // Nothing needed here yet - the LED just stays on!
 }
 ```
 
-Upload this code to your board. If **LED1** lights up, congratulations—you just wrote your first hardware program! 🎉
+Upload this code to your board. If **LED1** lights up, congratulations - you just wrote your first hardware program! 🎉
 
 ---
 
 ## 🛠️ Hardware & Soldering Check (Homework / Teacher Check-in)
 * **Board Inspection:** Take a close look at the solder joints around **LED1** and its resistor on your board. Are they shiny, smooth, and shaped like tiny volcanoes? If the LED doesn't light up even with the right code, a loose or "cold" solder joint might be breaking the circuit!
-* **Challenge Question (Ask your teacher if you get stuck!):** LEDs have polarity—meaning electricity can only flow through them in one direction (from the longer leg, the *anode*, to the shorter leg, the *cathode*). Look at your board's markings: why is there also a small resistor connected next to the LED? What would happen if we connected the LED straight to 5V without it?
+* **Challenge Question (Ask your teacher if you get stuck!):** LEDs have polarity - meaning electricity can only flow through them in one direction (from the longer leg, the *anode*, to the shorter leg, the *cathode*). Look at your board's markings: why is there also a small resistor connected next to the LED? What would happen if we connected the LED straight to 5V without it?

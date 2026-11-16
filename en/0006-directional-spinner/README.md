@@ -1,9 +1,9 @@
 # Lesson 6: Directional Spinner & Macros 🔄
 
-Time to combine everything you've learned so far! Today you'll build an interactive LED spinner where flipping the switch changes the spinning direction *immediately*—plus, you'll learn how pros eliminate "magic numbers" using **macros**.
+Time to combine everything you've learned so far! Today you'll build an interactive LED spinner where flipping the switch changes the spinning direction *immediately* - plus, you'll learn how pros eliminate "magic numbers" using **macros**.
 
 ## 🎯 Your Mission
-Read the switch on pin `A3`. When the switch is in one position, spin the LEDs (`4`–`11`) clockwise; when it's in the other position, spin them counterclockwise—and switch directions the instant the switch is flipped!
+Read the switch on pin `A3`. When the switch is in one position, spin the LEDs (`4`–`11`) clockwise; when it's in the other position, spin them counterclockwise - and switch directions the instant the switch is flipped!
 
 ---
 
@@ -36,7 +36,7 @@ Let's create `int nextLed = 4;` above `setup()`. Each time `loop()` runs, we mov
 Because `loop()` checks the switch before *every single LED step*, changing direction feels completely instantaneous!
 
 ### Final Step: Replacing "Magic Numbers" with Macros (`#define`)
-Look at the numbers `4` and `11` scattered through our code. If someone reads our code without holding the board, they might wonder: *"Why 4? Why 11? What do these random numbers mean?"* Programmers call unexplained numbers like this **magic numbers**—and we want to avoid them!
+Look at the numbers `4` and `11` scattered through our code. If someone reads our code without holding the board, they might wonder: *"Why 4? Why 11? What do these random numbers mean?"* Programmers call unexplained numbers like this **magic numbers** - and we want to avoid them!
 
 We can give those numbers meaningful names using **`#define`**, which creates a **macro**:
 
@@ -99,4 +99,4 @@ Look how easy that is to maintain: if you ever want the light to bounce around o
 
 ## 🎉 Course Checkpoint & Homework
 * **Experiment:** Try changing `MIN_LED` and `MAX_LED` to test a smaller arc of LEDs!
-* **Final Challenge (Show your teacher!):** Can you add a **"pause" feature** or speed boost? Think about how you could use another `if` statement—or ask your teacher how to wire up a push button so holding it down makes the spinner go into turbo mode!
+* **Final Challenge (Show your teacher!):** Can you add a **"pause" feature** or speed boost? Think about how you could use another `if` statement - or ask your teacher how to wire up a push button so holding it down makes the spinner go into turbo mode!
