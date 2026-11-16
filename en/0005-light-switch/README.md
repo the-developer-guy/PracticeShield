@@ -35,7 +35,7 @@ void loop() {
 ```
 Try this out! Flip the switch to the right and press the **Reset** button on your board - the LED turns on. Flip the switch to the left and press **Reset** - the LED stays off.
 
-### Step 2: Live Light Switch (No Reset Needed!)
+### Step 2: Live Update
 Having to press Reset every time you flip a light switch would be pretty annoying! Move the `digitalRead()` and `digitalWrite()` lines into `loop()` so the board checks the switch thousands of times per second:
 
 ```cpp
@@ -49,12 +49,14 @@ void loop() {
   digitalWrite(10, switchState);
 }
 ```
-Now flip the switch back and forth - the LED responds instantly!
+Now flip the switch back and forth - the LED responds instantly. Congratulations, we invented the wire! It's a bit expensive, but we can do more.
 
 ### Step 3: Inverting the Switch with `if` / `else`
-Imagine your hardware teammate comes to you and says: *"Oops! We mounted the switch upside down. Can you make the LED turn **ON** when the switch is on the **LEFT** (`LOW`), and **OFF** when it's on the **RIGHT** (`HIGH`)?"*
+Imagine your hardware teammate comes to you and says: *"Oops! The wires were mixed up. Can you make the LED turn **ON** when the switch is on the **LEFT** (`LOW`), and **OFF** when it's on the **RIGHT** (`HIGH`)?"*
 
-In real-world engineering, requirements change all the time, and fixing it in software saves you from resoldering hardware! To make decisions in code, we use **conditionals** (`if` and `else`):
+In the real world, requirements change all the time, and fixing errors in code is usually the only solution! Well, you can also recall millions of devices and give the customer a new one, but that's usually way more expensive than just sending a software update.
+
+To make decisions in code, we use **conditionals** (`if` and `else`):
 
 ```cpp
 void setup() {
@@ -88,10 +90,5 @@ else {
   digitalWrite(10, LOW);
 }
 ```
-In fact, because C++ treats `1` (`HIGH`) as **true** and `0` (`LOW`) as **false**, experienced programmers often write the condition simply as `if (switchState)`!
 
----
-
-## 🛠️ Hardware & Coding Homework
-* **Hardware Check:** If flipping the switch doesn't change the LED at all, inspect the solder joints under the slide switch and check that the switch isn't stuck.
-* **Challenge (Ask your teacher if you want to discuss!):** Right now, you're controlling 1 LED with the switch. How could you use `if` / `else` so that flipping the switch **LEFT** lights up pin `4`, and flipping it **RIGHT** lights up pin `11`?
+In fact, because C++ treats `0` (`LOW`) as **false** and everything else is **true**, some programmers often write the condition simply as `if (switchState)`!
